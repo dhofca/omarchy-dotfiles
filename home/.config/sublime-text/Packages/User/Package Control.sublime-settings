@@ -5,11 +5,7 @@
 	],
 	"installed_packages":
 	[
-		"Advanced CSV",
-		"GitHub Theme",
-		"MarkdownLivePreview",
 		"Package Control",
-		"Pretty JSON",
-		"Vue",
+		"Pretty JSON"
 	],
 }
