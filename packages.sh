@@ -27,7 +27,7 @@ else
   echo "installing package control..."
   mkdir -p "$SUBLIME_INSTALLED"
   curl -fsSL -o "$SUBLIME_INSTALLED/Package Control.sublime-package" \
-    'https://packagecontrol.io/Package%20Control.sublime-package'
+    https://github.com/wbond/package_control/releases/latest/download/Package.Control.sublime-package
 fi
 
 FONT="GeistMono Nerd Font"
