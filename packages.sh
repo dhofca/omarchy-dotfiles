@@ -2,6 +2,34 @@
 
 set -euo pipefail
 
+if pacman -Q sublime-text >/dev/null 2>&1; then
+  echo "sublime text already installed"
+else
+  echo "installing sublime text..."
+  tmp="$(mktemp -d)"
+  curl -fsSL -o "$tmp/sublimehq-pub.gpg" https://download.sublimetext.com/sublimehq-pub.gpg
+  sudo pacman-key --add "$tmp/sublimehq-pub.gpg"
+  sudo pacman-key --lsign-key 8A8F901A
+  rm -rf "$tmp"
+
+  if ! grep -q "^\\[sublime-text\\]" /etc/pacman.conf; then
+    printf '\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/%s\n' "$(uname -m)" | sudo tee -a /etc/pacman.conf >/dev/null
+  fi
+
+  sudo pacman -Sy --needed --noconfirm sublime-text
+fi
+
+SUBLIME_INSTALLED="$HOME/.config/sublime-text/Installed Packages"
+
+if [ -f "$SUBLIME_INSTALLED/Package Control.sublime-package" ]; then
+  echo "package control already installed"
+else
+  echo "installing package control..."
+  mkdir -p "$SUBLIME_INSTALLED"
+  curl -fsSL -o "$SUBLIME_INSTALLED/Package Control.sublime-package" \
+    'https://packagecontrol.io/Package%20Control.sublime-package'
+fi
+
 FONT="GeistMono Nerd Font"
 
 if fc-list : family | grep -F "$FONT" >/dev/null; then
