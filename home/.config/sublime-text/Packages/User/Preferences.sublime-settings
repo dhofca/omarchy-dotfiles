@@ -1,5 +1,4 @@
 {
-    "caret_style": "phase",
     "color_scheme": "Omarchy.sublime-color-scheme",
     "ensure_newline_at_eof_on_save": true,
     "findreplace_small": true,
@@ -13,10 +12,6 @@
     "font_size": 18,
     "highlight_line": false,
     "hot_exit": false,
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
     "index_files": true,
     "line_numbers": true,
     "line_padding_bottom": 5,
