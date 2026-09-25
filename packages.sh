@@ -49,3 +49,8 @@ if command -v omarchy >/dev/null 2>&1 && [ "$(omarchy font current 2>/dev/null)"
   echo "setting $FONT as the system monospace font..."
   omarchy font set "$FONT"
 fi
+
+if command -v omarchy >/dev/null 2>&1; then
+  echo "applying the omarchy theme to sublime text..."
+  omarchy theme set "$(omarchy theme current)"
+fi
