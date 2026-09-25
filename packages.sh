@@ -33,6 +33,20 @@ fi
 echo "installing azure cli..."
 sudo pacman -S --needed --noconfirm azure-cli
 
+if command -v claude >/dev/null 2>&1; then
+  echo "claude code already installed"
+else
+  echo "installing claude code..."
+  omarchy-mise-install claude
+fi
+
+if pacman -Q claude-desktop >/dev/null 2>&1; then
+  echo "claude desktop already installed"
+else
+  echo "installing claude desktop..."
+  yay -S --needed --noconfirm claude-desktop
+fi
+
 FONT="GeistMono Nerd Font"
 
 if fc-list : family | grep -F "$FONT" >/dev/null; then
