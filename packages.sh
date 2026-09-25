@@ -30,6 +30,9 @@ else
     https://github.com/wbond/package_control/releases/latest/download/Package.Control.sublime-package
 fi
 
+echo "installing azure cli..."
+sudo pacman -S --needed --noconfirm azure-cli
+
 FONT="GeistMono Nerd Font"
 
 if fc-list : family | grep -F "$FONT" >/dev/null; then
